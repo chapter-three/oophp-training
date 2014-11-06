@@ -83,7 +83,7 @@ Classes provide a factory to create objects with. Other analogies given are
 'cookie cutter', 'object template'.
 
 The classic analogy is that the class represents a blueprint, and we
-*instanciate* (create instances from) a class in order to assign an instance of
+*instantiate* (create instances from) a class in order to assign an instance of
 the class to a variable. With a blueprint of a house, one can construct
 a 'house object'.
 
@@ -217,12 +217,12 @@ conceptual boundaries relative to the perspective of the viewer."
 
 ##Abstract Classes
 
-*An abstract class cannot be instanciated, but rather, _child classes_ can be
+*An abstract class cannot be instantiated, but rather, _child classes_ can be
 extended from the abstract class.*
 
 Abstract classes are typically used as a means to organize a project.  You
 can't create an object from an abstract class. Instead, a child class extends
-an abstract class, and then an object can be instanciated from the child class.
+an abstract class, and then an object can be instantiated from the child class.
 
 The child class *must* implement all of the abstract methods listed in the
 _parent class_. PHP doesn't use abstract properties, only methods, so you can
@@ -321,7 +321,7 @@ databases.
 
  - Create an abstract class out of the Person class from lesson 2.
  - Create a concrete class that extends the abstract class.
- - Instanciate an object from the concrete class.
+ - Instantiate an object from the concrete class.
  - Set the name of the person object, and then echo it back out.
 
 
@@ -539,7 +539,7 @@ In PHP we can accomplish this by specifying interface data types in type
 hinting as shown in the previous lesson. It is important to note that by
 'interface data types', we mean interfaces _or_ abstract classes.
 
-Also, as previously noted, we can instanciate an object of a given concrete
+Also, as previously noted, we can instantiate an object of a given concrete
 implementation, and so long as it implements an interface or extends an
 abstract class, those parent classes will be used to identify the object curing
 type hinting.
