@@ -135,7 +135,7 @@ class Person {
     $this->name = $name;
   }
 
-  public function getName() {
+  public getName() {
     return $this->name;
   }
 }
@@ -256,8 +256,8 @@ extend the `APerson` class
 If you fail to implement all of the abstract methods outlined in the abstract
 class in a child concrete class, PHP will throw an error.
 
-Remember that abstract methods are only declarations, and that concrete methods
-methods must conatin a function body whereas abstract methods must not.
+Remember that abstract methods are only declarations, and that concrete
+methods must contain a function body whereas abstract methods must not.
 
 PHP will throw an error if:
 
@@ -292,12 +292,12 @@ extends the PDO class that comes with the PHP PDO extension for it's own
 purposes. This abstract class contains many concrete methods as well as
 abstract methods.
 
-Different supported databases each extend this `DatabaseConneciton` class and
+Different supported databases each extend this `DatabaseConnection` class and
 then have access to the augmented PDO class, with inherited methods available.
 These supported databases then implement the abstract methods declared in the
-DatabaseConneciton class as they unique to a given database.
+DatabaseConneciton class as they are unique to a given database.
 
-For instance, within the `DatabaseConneciton` class an abstract `queryRange`
+For instance, within the `DatabaseConnection` class an abstract `queryRange`
 function is declared. The implementations of this abstract method differ from
 MySQL to PostgreSQL as the syntax for range queries differs between the two
 databases.
@@ -443,6 +443,13 @@ for creating custom entities, but for those using some sort of noSQL database,
 creating a custom controller is available, it just needs to implement the
 `DrupalEntityControllerInterface` interface.
 
+
+##Exercise:
+
+ - Create an interface to give a Person object from lesson 3 an email address and website.
+ - Modify the concrete class from lesson 3 to implement your new interface.
+ - Instantiate an object from the concrete class.
+ - Set the email and website of the object, and then echo it back out.
 
 
 #Lesson 6: Design Patterns
