@@ -209,6 +209,7 @@ as a second parameter a string of the class you wish to test against.
 
  - `abstract`
  - `extends`
+ - `parent`
 
 "An abstraction denotes the essential characteristics of an object that
 distinguish it from all other kinds of objects and thus provide crisply defined
@@ -243,7 +244,7 @@ abstract class APerson {
   abstract public function setName($name);
 
   public function sayHi() {
-      echo "Hi.\n";
+      return "Hi.\n";
   }
 }
 ```
@@ -283,6 +284,20 @@ class CPerson extends APerson {
 
   }
 }
+```
+
+###Parent
+
+You may find yourself writing code that refers to variables and functions in base classes. This is particularly true if your derived class is a refinement or specialisation of code in your base class.
+
+```php
+class DPerson implements CPerson {
+
+  function sayHi() {
+    $name = $this->getName();
+    return parent::sayHi() . "My name is ${name}.\n";
+  }
+
 ```
 
 ##Examples in Drupal:
