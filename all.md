@@ -295,7 +295,7 @@ class DPerson implements CPerson {
 
   function sayHi() {
     $name = $this->getName();
-    return parent::sayHi() . "My name is ${name}.\n";
+    return parent::sayHi() . "My name is {$name}.\n";
   }
 
 ```
