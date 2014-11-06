@@ -531,7 +531,9 @@ echo "My dog has " . MyDog::$numLegs . " legs.\n";
 
 ##Program to an interface, not an implementation.
 
-We learned an *interface* is a set of methods that an object responds to, and an *implentation* is the code and logic for the object. Generally you want to write code you want to reference interfaces instead of implementations.
+We learned an *interface* is a set of methods that an object responds to, and an
+*implentation* is the code and logic for the object. Generally you want to write
+code you want to reference interfaces instead of implementations.
 
 This decouples design from the specific implementation of concrete classes, and
 allows you to swap out one implementation for another easily, as well as create
@@ -579,9 +581,45 @@ class Client {
 
 This contrived example shows a client class that uses an object.
 
+##Strategy
+
+Encapsulates specific families of algorithms allowing the client class responsible for instantiating a particular algorithm to have no knowledge of the actual implementation.
+
+```php
+interface OutputInterface
+{
+    public function load();
+}
+
+class SerializedArrayOutput implements OutputInterface
+{
+    public function load()
+    {
+        return serialize($arrayOfData);
+    }
+}
+
+class JsonStringOutput implements OutputInterface
+{
+    public function load()
+    {
+        return json_encode($arrayOfData);
+    }
+}
+
+class ArrayOutput implements OutputInterface
+{
+    public function load()
+    {
+        return $arrayOfData;
+    }
+}
+```
+
 ##Singleton
 
-A singleton is a class that is intended to be instantiated once and reused in multiple scopes in an application.
+A singleton is a class that is intended to be instantiated once and reused in multiple
+scopes in an application.
 
 ```php
 class Singleton
