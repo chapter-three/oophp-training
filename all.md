@@ -467,7 +467,66 @@ creating a custom controller is available, it just needs to implement the
  - Set the email and website of the object, and then echo it back out.
 
 
-#Lesson 6: Design Patterns
+#Lesson 6: Static Properties
+
+##New Keywords:
+
+ - `static`
+
+##Not Static Variables
+
+You may have seen the use of `static` inside non-OO functions. Static variables keep their values across multiple function calls.
+
+```php
+function test()
+{
+    static $a = 0;
+    echo $a . "\n";
+    $a++;
+}
+
+test();
+test();
+```
+
+##Static Keyword in Classes
+
+Declaring class properties or methods as static makes them accessible without needing an instantiation of the class.
+
+An attribute declared as static **cannot** be accessed with an instantiated class object.
+
+A method declared as static **can** be accessed with an instantiated class object.
+
+```php
+class Dog {
+  static $numLegs = 4;
+
+  static function hasClaws() {
+    return TRUE;
+  }
+
+  function bark() {
+    echo "bow wow\n";
+  }
+}
+
+class MyDog {
+  static $numLegs = 3;
+
+  function bark() {
+    echo "bow ow\n";
+  }
+}
+
+echo "Most dogs have " . Dog::$numLegs . " legs.\n";
+echo "Can dogs scratch? " . Dog::hasClaws() . "\n";
+
+$dog = new MyDog();
+
+echo "My dog has " . MyDog::$numLegs . " legs.\n";
+// Not
+// echo "My dog has " . $dog->numLegs . " legs.\n";
+```#Lesson 7: Design Patterns
 
 ##Program to an interface, not an implementation.
 
