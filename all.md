@@ -135,7 +135,7 @@ class Person {
     $this->name = $name;
   }
 
-  public getName() {
+  public function getName() {
     return $this->name;
   }
 }
