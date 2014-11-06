@@ -526,7 +526,8 @@ $dog = new MyDog();
 echo "My dog has " . MyDog::$numLegs . " legs.\n";
 // Not
 // echo "My dog has " . $dog->numLegs . " legs.\n";
-```#Lesson 7: Design Patterns
+```
+#Lesson 7: Design Patterns
 
 ##Program to an interface, not an implementation.
 
