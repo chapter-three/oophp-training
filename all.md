@@ -531,6 +531,8 @@ echo "My dog has " . MyDog::$numLegs . " legs.\n";
 
 ##Program to an interface, not an implementation.
 
+We learned an *interface* is a set of methods that an object responds to, and an *implentation* is the code and logic for the object. Generally you want to write code you want to reference interfaces instead of implementations.
+
 This decouples design from the specific implementation of concrete classes, and
 allows you to swap out one implementation for another easily, as well as create
 new implementations.
@@ -577,4 +579,114 @@ class Client {
 
 This contrived example shows a client class that uses an object.
 
+##Singleton
 
+A singleton is a class that is intended to be instantiated once and reused in multiple scopes in an application.
+
+```php
+class Singleton
+{
+    /**
+     * Returns the *Singleton* instance of this class.
+     *
+     * @staticvar Singleton $instance The *Singleton* instances of this class.
+     *
+     * @return Singleton The *Singleton* instance.
+     */
+    public static function getInstance()
+    {
+        static $instance = null;
+        if (null === $instance) {
+            $instance = new static();
+        }
+
+        return $instance;
+    }
+
+    /**
+     * Protected constructor to prevent creating a new instance of the
+     * *Singleton* via the `new` operator from outside of this class.
+     */
+    protected function __construct()
+    {
+    }
+
+    /**
+     * Private clone method to prevent cloning of the instance of the
+     * *Singleton* instance.
+     *
+     * @return void
+     */
+    private function __clone()
+    {
+    }
+
+    /**
+     * Private unserialize method to prevent unserializing of the *Singleton*
+     * instance.
+     *
+     * @return void
+     */
+    private function __wakeup()
+    {
+    }
+}
+
+class SingletonChild extends Singleton
+{
+}
+
+$obj = Singleton::getInstance();
+var_dump($obj === Singleton::getInstance());             // bool(true)
+
+$anotherObj = SingletonChild::getInstance();
+var_dump($anotherObj === Singleton::getInstance());      // bool(false)
+
+var_dump($anotherObj === SingletonChild::getInstance()); // bool(true)
+```
+
+##Factory
+
+A factory class simply creates the object you want to use. The purpose of the factory patterns is to separate the use of a certain component, from the choice of implementation + instance management of that component.
+
+```php
+class Automobile
+{
+    private $vehicleMake;
+    private $vehicleModel;
+
+    public function __construct($make, $model)
+    {
+        $this->vehicleMake = $make;
+        $this->vehicleModel = $model;
+    }
+
+    public function getMakeAndModel()
+    {
+        return $this->vehicleMake . ' ' . $this->vehicleModel;
+    }
+}
+
+class AutomobileFactory
+{
+    public static function create($make, $model)
+    {
+        return new Automobile($make, $model);
+    }
+}
+
+// have the factory create the Automobile object
+$veyron = AutomobileFactory::create('Bugatti', 'Veyron');
+
+print_r($veyron->getMakeAndModel()); // outputs "Bugatti Veyron"
+```
+
+##Dependency Injection
+
+An injection is the passing of a dependency (a service) to a dependent object (a client). The service is made part of the client's state. Passing the service to the client, rather than allowing a client to build or find the service, is the fundamental requirement of the pattern.
+
+##References
+
+-   [Design Patterns - PHP: The Right Way](http://www.phptherightway.com/pages/Design-Patterns.html)
+-   Wikipedia
+    -   [Dependency injection - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Dependency_injection)
