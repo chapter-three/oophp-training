@@ -11,4 +11,5 @@ Contents
 -  Lesson 4: [Static Properties](4.md)
 -  Lesson 5: [Abstraction and Inheritance](5.md)
 -  Lesson 6: [Interfaces](6.md)
--  Lesson 7: [Design Patterns](7.md)
+-  Lesson 7: [Namespaces and autoloading](7.md)
+-  Lesson 8: [Design Patterns](7.md)
