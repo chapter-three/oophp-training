@@ -1,38 +1,30 @@
 <?php
 
-interface IPerson {
-  const NAME='Alice';
-  function getName();
-}
+abstract class APerson {
+  abstract function getName();
+  abstract function setName($name);
 
-class BasicPerson implements IPerson {
-  private $name=IPerson::NAME;
-
-  function getName() {
-    return $this->name . ' Basic';
+  public function sayHi() {
+    echo "hi\n";
   }
 }
 
-class AdvPerson implements IPerson {
-  private $name=IPerson::NAME;
+class CPerson extends APerson {
+  private $name;
 
   function getName() {
-    return $this->name . ' Advanced';
+    return $this->name;
   }
-}
 
-class Client {
   function __construct() {
-    $basic = new BasicPerson();
-    $adv = new AdvPerson();
-    $this->sayHi($basic);
-    $this->sayHi($adv);
+    $this->sayHi();
   }
 
-  // Important type hinting, note that we're using the interface as the type.
-  function sayHi(IPerson $person) {
-    echo "Hi " . $person->getName() . ".\n";
+  function setName($name) {
+    $this->name = $name;
   }
 }
 
-$worker = new Client();
+$person = new CPerson();
+$person->setName('Alice');
+echo $person->getName();
