@@ -12,4 +12,4 @@ Contents
 -  Lesson 5: [Abstraction and Inheritance](5.md)
 -  Lesson 6: [Interfaces](6.md)
 -  Lesson 7: [Namespaces and autoloading](7.md)
--  Lesson 8: [Design Patterns](7.md)
+-  Lesson 8: [Design Patterns](8.md)
