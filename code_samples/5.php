@@ -5,7 +5,7 @@ abstract class APerson {
   abstract function setName($name);
 
   public function sayHi() {
-    echo "hi\n";
+    echo "hi" . PHP_EOL;
   }
 }
 

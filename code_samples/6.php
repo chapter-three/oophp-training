@@ -31,7 +31,7 @@ class Client {
 
   // Important type hinting, note that we're using the interface as the type.
   function sayHi(IPerson $person) {
-    echo "Hi " . $person->getName() . ".\n";
+    echo "Hi " . $person->getName() . PHP_EOL;
   }
 }
 
