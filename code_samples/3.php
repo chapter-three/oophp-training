@@ -42,4 +42,5 @@ class Person {
 
 $person = new Person('Arlina', 32, 160);
 
+var_dump(is_a($person, 'stdClass'));
 var_dump($person);
