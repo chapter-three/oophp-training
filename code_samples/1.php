@@ -1,15 +1,22 @@
 <?php
 
-function cat() {
-  $cat = new stdClass();
-  $cat->name = 'frank';
-  $cat->meow = function() {
-    echo 'meow';
-  };
-  return $cat;
+class Person {
+
+  public $name;
+  public $age;
+
+  function getName() {
+    return $this->name;
+  }
+
+  function getAge() {
+    return $this->age;
+  }
+
 }
 
-$cat1 = cat();
-unset($cat1->name);
-var_dump($cat1->name);
-call_user_func($cat1->meow);
+$person = new Person();
+$person->name = 'Arlina';
+$person->age = 32;
+
+var_dump($person);

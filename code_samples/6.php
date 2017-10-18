@@ -1,6 +1,6 @@
 <?php
 
-class Person {
+abstract class APerson {
   private $name;
 
   public function getName() {
@@ -16,7 +16,7 @@ class Person {
   }
 }
 
-class Developer extends Person {
+class Developer extends APerson {
 
   public function work() {
     echo 'Coding!' . PHP_EOL;
@@ -29,7 +29,7 @@ class Developer extends Person {
 
 }
 
-class Designer extends Person {
+class Designer extends APerson {
 
   public function work() {
     echo 'Designing!' . PHP_EOL;
@@ -42,10 +42,12 @@ class Designer extends Person {
 
 }
 
+//$person = new APerson(); // Error!
+
 $programmer = new Developer();
-$programmer->sayHi(); // Hi I'm a developer.
+$programmer->sayHi(); // Hi
 $programmer->work(); // Coding!
 
 $designer = new Designer();
-$designer->sayHi(); // Hi I'm a designer.
+$designer->sayHi(); // Hi
 $designer->work(); // Designing!
